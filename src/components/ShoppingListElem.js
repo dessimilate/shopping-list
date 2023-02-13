@@ -11,7 +11,7 @@ const ShoppingListElem = ({ plan, setPlans, index }) => {
         {changeText ?
           <input
             value={plan}
-            onChange={(e) => setPlans((el) => el.splice(index, 1, e.target.value))}
+            onChange={(e) => setPlans((el) => [...el.slice(0, index), e.target.value, ...el.slice(index+1)])}
             placeholder="enter text"
             className="shp-list-elem-text"
           /> : 
